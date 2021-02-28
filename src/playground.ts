@@ -154,7 +154,6 @@ const books: Books[] = [
 ];
 
 function isBookRead(books: Books[], titleToSearch: string) {
-
   const checkBooks = books
     .filter((book) => book.title == titleToSearch)
     .map((book) => book.isRead);
@@ -182,3 +181,49 @@ console.log(
   "%c// Slot Machine",
   "background: #0D1A26; color: #d9bacb; padding: 5px 15px; border: 1px solid"
 );
+
+class slotMachine {
+  constructor() {
+    this.coins = 0;
+  }
+
+  play() {
+    this.coins++;
+    const randomyzer = () => Math.random() < 0.5;
+
+    this.reelOne = randomyzer();
+    this.reelTwo = randomyzer();
+    this.reelThree = randomyzer();
+
+    switch (this.coins) {
+      case 1:
+        let totalCoins = " moneda en total";
+        break;
+      default:
+        totalCoins = " monedas totales";
+    }
+
+    console.log('Insertamos una monedas en la máquina');
+    console.log("Contador de monedas: " + this.coins + totalCoins);
+    console.log("Resultado Reel 1", this.reelOne);
+    console.log("Resultado Reel 2", this.reelTwo);
+    console.log("Resultado Reel 3", this.reelThree);
+
+    if (this.reelOne && this.reelTwo && this.reelThree === true) {
+      console.log(
+        "Enhorabuena, has ganado el premio de " + this.coins + totalCoins
+      );
+      this.coins = 0;
+      console.log('El bote se ha reiniciado, hay' this.coins + ' monedas');
+    } else {
+      console.log(
+        "Oh lo sentimos, prueba a jugar otra vez hasta que te dejemos la cartera frita"
+      );
+    }
+  }
+}
+
+const SlotMachine1 = new slotMachine();
+SlotMachine1.play();
+SlotMachine1.play();
+SlotMachine1.play();
