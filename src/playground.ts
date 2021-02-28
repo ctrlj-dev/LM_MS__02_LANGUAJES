@@ -195,9 +195,11 @@ class slotMachine {
     this.reelTwo = randomyzer();
     this.reelThree = randomyzer();
 
+    let totalCoins;
+
     switch (this.coins) {
       case 1:
-        let totalCoins = " moneda en total";
+        totalCoins = " moneda en total";
         break;
       default:
         totalCoins = " monedas totales";
